@@ -89,12 +89,18 @@ WHERE
     quantity >= 4
 ```
 
-3. **Write a SQL query to calculate the total sales (total_sale) for each category.**:
+3. **Write a query to calculate the total sales for each category**:
 ```sql
-SELECT 
-    category,
-    SUM(total_sale) as net_sale,
-    COUNT(*) as total_orders
+SELECT * FROM retail_sales
+**Then**
+SELECT category,
+SUM(total_sale) as net_sale
+FROM retail_sales
+GROUP BY 1
+**To get total orders as well** 
+SELECT category,
+SUM(total_sale) as net_sale,
+COUNT(*) as total_orders
 FROM retail_sales
 GROUP BY 1
 ```
